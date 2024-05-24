@@ -1,12 +1,35 @@
-//* javascript memperlakukan function sebagai first-class object, yang berarti function bisa disimpan dalam variabel, bisa dijadikan sebagai parameter, dan bisa dijadikan sebagai return value.
+const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 
-//* function yang disimpan sebagai argumen disebut callback function.
-//* function yang memiliki function sebagai argumen disebut higher order function.
+// filter angka >= 3
 
-//  alasan menggunakan higher order function:
-// abstraksi: kita bisa menyembunyikan detail dari sebuah function dan hanya mengekspose apa yang dibutuhkan oleh user.
+// for
+// const newAngka = [];
+// for(let i = 0; i < angka.length; i++) {
+//     if(angka[i] >= 3) {
+//         newAngka.push(angka[i]);
+//     }
+// }
 
-// mendekatkan ke functional programming
+// console.log(newAngka);
 
-// contoh higher order function
-// Array.prototype.map(), Array.prototype.filter(), Array.prototype.reduce()
+// filter
+// const newAngka = angka.filter(a => a >= 3 );
+// console.log(newAngka);
+
+// map
+// kalikan semua angka dengan 2
+// const newAngka = angka.map(a => a * 2);
+// console.log(newAngka);
+
+// reduce
+// jumlahkan seluruh elemen pada array
+// const newAngka = angka.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// console.log(newAngka);
+
+// method chaining -> menggabungkan beberapa method dalam satu waktu
+// cari angka >  5, kalikan 3, jumlahkan
+const hasil = angka.filter(a => a > 5) // 8, 9, 9
+                    .map(a => a * 3) // 24, 27, 27
+                    .reduce((acc, cur) => acc + cur, 0); // 78
+
+console.log(hasil);
