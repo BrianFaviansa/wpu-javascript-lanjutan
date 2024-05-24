@@ -1,67 +1,50 @@
-// 2 fase pada execution context
+// Closure
 
-// 1. Creation phase
+// Lexical Scope => punya akses ke variabel di luar function
+// Closure => kemampuan sebuah function untuk mengakses scope di atasnya
 
-// console.log(nama); // undefined
-// var nama = 'hibou';
-
-// creation phase pada global context
-// nama var = undefined
-// nama function = fn()
-// hoisting => mengangkat deklarasi variable & function ke atas
-// window = global object
-// this = window
-
-// 2. Execution phase
-
-// var nama = 'hibou';
-// var umur = 33;
-
-// console.log(sayHello());
-
-// function sayHello() {
-//     return `Halo, nama saya ${nama}, saya ${umur} tahun.`;
-// }
-
-// creation phsae pada local context (function)
-// hoisting
-// argument = undefined
-// variable = undefined
-// function = fn()
-// window = global object
-// this = window
-
-// execution phase
-// argument = nilai yang dikirim saat function dijalankan
-// variable = assign nilai
-// function = dijalankan
-
-var nama = 'hibou';
-var username = '@hibou';
-
-function cetakURL(username) {
-    var instagramURL = 'http://instagram.com/';
-    return instagramURL + username;
-}
-
-// console.log(cetakURL(username)); // http://instagram.com/@hibou
-console.log(cetakURL('furby')); // http://instagram.com/@hibou
-
-
-// function a() {
-//     console.log('ini a');
-
-//     function b() {
-//         console.log('ini b');
-
-//         function c() {
-//             console.log('ini c');
-//         }
-
-//         c();
+// function init() {
+//     // var nama = 'hibou'; // local variable
+//     return function (nama) { // inner function (closure)
+//         console.log(nama); // akses ke parent variable
 //     }
+//     // return tampilNama;
+//     // console.dir(tampilNama); // melihat closure
+// }
+// // init(); // tidak akan muncul apa-apa
 
-//     b();
+// let panggilNama = init();
+// panggilNama('hibou');
+// panggilNama('furby');
+
+// Kenapa menggunakan closure?
+
+// 1. untuk membuat function factories
+
+// function ucapkanSalam(waktu) {
+//     return function(nama) {
+//         console.log(`Halo ${nama}, selamat ${waktu}, semoga harimu menyenangkan!`);
+//     }
 // }
 
-// a(); // ini a, ini b, ini c
+// let selamatPagi = ucapkanSalam('pagi');
+// let selamatSiang = ucapkanSalam('siang');
+// let selamatMalam = ucapkanSalam('malam');
+
+// selamatPagi('hibou');
+
+// 2. untuk membuat private method
+
+
+let add = (function () {
+    let counter = 0;
+    return function () {
+        return ++counter;
+    };
+})();
+
+// let a = add();
+
+console.log(add());
+console.log(add());
+console.log(add());
