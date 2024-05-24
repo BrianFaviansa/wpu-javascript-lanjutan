@@ -98,24 +98,32 @@
 
 // VERSI CLASS
 
-class Mahasiswa {
-    constructor(nama, energi) {
-        this.nama = nama;
-        this.energi = energi;
-    }
+// class Mahasiswa {
+//     constructor(nama, energi) {
+//         this.nama = nama;
+//         this.energi = energi;
+//     }
 
-    makan(porsi) {
-        this.energi += porsi;
-        return `Halo ${this.nama}, selamat makan!`;
-    }
+//     makan(porsi) {
+//         this.energi += porsi;
+//         return `Halo ${this.nama}, selamat makan!`;
+//     }
 
-    main(jam) {
-        this.energi -= jam;
-        return `Halo ${this.nama}, selamat bermain!`;
-    }
+//     main(jam) {
+//         this.energi -= jam;
+//         return `Halo ${this.nama}, selamat bermain!`;
+//     }
 
-    tidur(jam) {
-        this.energi += jam * 2;
-        return `Halo ${this.nama}, selamat tidur!`;
-    }
-}
+//     tidur(jam) {
+//         this.energi += jam * 2;
+//         return `Halo ${this.nama}, selamat tidur!`;
+//     }
+// }
+
+// let hibou = new Mahasiswa('Hibou', 10);
+// let furby = new Mahasiswa('Furby', 20);
+
+let angka = [1, 2, 3];
+angka.reverse();
+console.log(angka);
+// let angka = new Array();
