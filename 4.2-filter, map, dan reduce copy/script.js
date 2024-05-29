@@ -1,3 +1,0 @@
-// todo
-
-// ambil elemen video
